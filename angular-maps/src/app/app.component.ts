@@ -12,9 +12,8 @@ export class AppComponent {
   position: any;
   label: string;
   circleOptions: { fillColor: string; };
-  markerOptions!: google.maps.MarkerOptions;
-  vertices!: google.maps.LatLngLiteral[];
-  vertices1!: google.maps.LatLngLiteral[];
+  markerOptions: google.maps.MarkerOptions;
+  vertices: { lat: any; lng: any; }[];
 
 
 
@@ -23,12 +22,13 @@ export class AppComponent {
     this.position = this.center;
     this.label = "ciao";
     this.circleOptions = { fillColor: 'red' }
-    let iconData: google.maps.Icon = {
-      url: 'angular-maps/src/app/img/cat_acrobat.ico',
-      scaledSize: new google.maps.Size(60, 60)
-    }
 
-    this.markerOptions = { icon: iconData }
+    let iconData : google.maps.Icon = {
+      url:'./assets/img/cat_acrobat.ico',
+      scaledSize : new google.maps.Size(60,60)
+ }
+  
+this.markerOptions = {icon:iconData}
     this.vertices = [
       { lat: this.center.lat + 0.001, lng: this.center.lng - 0.002 },
       { lat: this.center.lat, lng: this.center.lng },
