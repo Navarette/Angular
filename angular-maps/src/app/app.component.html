@@ -1,20 +1,7 @@
 <h1>Angular Google Maps Demo</h1>
+<google-map  #mapRef [center]="center" [zoom]="zoom" [width]="1000">  
 
-<!--Centriamo la mappa alle nostre coordinate-->
-<google-map  #mapRef [center]="center" [zoom]="zoom" [width]="1000">    
-  <!--Mettiamo un marker alle nostre coordinate-->
-  <map-marker [position]="position" 
-              [label]="label" 
-              [title]="title"
-              [options] = "markerOptions">
- </map-marker>
  <map-marker *ngFor="let markerOption of markerList" [options] = "markerOption">
 </map-marker>
-  <map-circle [center]="position"
-              [radius]="50"
-              [options] = 'circleOptions'>
-  </map-circle>
 
-  <map-polygon [paths]="vertices">
-  </map-polygon>
 </google-map>
