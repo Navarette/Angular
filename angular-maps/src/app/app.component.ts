@@ -11,27 +11,29 @@ import { GEOJSON, GeoFeatureCollection } from './models/geojson.model';
 export class AppComponent implements AfterViewInit {
   title = 'server mappe';
   //Aggiungiamo latitudine e longitudine di un luogo
-  center: google.maps.LatLngLiteral = { lat: 45.506738, lng: 9.190766 };
+ 
   geoJsonObject : GeoFeatureCollection;
   fillColor: string = "#FF0000";  //Colore delle zone catastali
- 
+  center: google.maps.LatLngLiteral = { lat: 45.506738, lng: 9.190766 };
   markerList! : google.maps.MarkerOptions[];
-  zoom = 8;
+  zoom! : 8;
 
   constructor() {
 
-    //Questi dati dovremmo scaricarli dal server, per ora li abbiamo copiati nel file     gojson.model.ts
+    //Questi dati dovremmo scaricarli dal server, per ora li abbiamo copiati nel file gojson.model.ts
     this.geoJsonObject = GEOJSON;  
     console.log(this.geoJsonObject); //stampo l'oggetto geoJsonObject sulla console
+    this.markerGenerator();
   }
 
-  @ViewChild('mapRef')
+  @ViewChild('mapRef') 
   mapRef!: GoogleMap;
-  ngAfterViewInit() { 
-    this.mapRef.data.addGeoJson(this.geoJsonObject); 
-    this.mapRef.data.setStyle(this.styleFunc);
+  ngAfterViewInit() {
+    this.mapRef.data.addGeoJson(this.geoJsonObject);
+    this.mapRef.data.setStyle;
   }
-  styleFunc = (feature:any) =>{
+
+  styleFunc = (feature: any) =>{
     console.log(feature.i.id)
     let newColor = "#FF0000"; //RED
     if(feature.i.id == 0) newColor = "#00FF00"; //GREEN
@@ -42,6 +44,7 @@ export class AppComponent implements AfterViewInit {
       strokeWeight: 1
     });
   }
+
   markerGenerator()
   {
     this.markerList =[
@@ -62,7 +65,7 @@ export class AppComponent implements AfterViewInit {
     ]
 
   }
-
+ 
 }
 // import { AfterViewInit, Component, ViewChild } from '@angular/core';
 // import { GoogleMap } from '@angular/google-maps';
