@@ -30,13 +30,13 @@ export class AppComponent implements AfterViewInit {
   mapRef!: GoogleMap;
   ngAfterViewInit() {
     this.mapRef.data.addGeoJson(this.geoJsonObject);
-    this.mapRef.data.setStyle;
+    this.mapRef.data.setStyle(this.styleFunc);
   }
 
   styleFunc = (feature: any) =>{
-    console.log(feature.i.id)
+    console.log(feature.h.id) // console.log(feature)
     let newColor = "#FF0000"; //RED
-    if(feature.i.id == 0) newColor = "#00FF00"; //GREEN
+    if(feature.h.id == 0) newColor = "#00FF00"; //GREEN l'id cambia
     else newColor = "#0000FF"; //BLUE
     return ({
       clickable: false,
