@@ -15,7 +15,7 @@ import shapely.wkt
 # pip install geojson
 # pip install shapely
 # npm i -g nodemon
-# nodemon main.py
+# npm i -g nodemon
 app = Flask(__name__)
 
 # Stringa di connessione al DB

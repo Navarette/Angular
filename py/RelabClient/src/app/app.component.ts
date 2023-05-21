@@ -38,9 +38,9 @@ export class AppComponent implements AfterViewInit {
   //Una volta che la pagina web è caricata, viene lanciato il metodo ngOnInit scarico i    dati 
   //dal server
   ngOnInit() {
-    this.obsGeoData = this.http.get<GeoFeatureCollection>("mongodb+srv://navarettearnold:OTQ1NGBauyWEKbNv@cluster0.0gmimrb.mongodb.net/ci_vettore/50");
+    this.obsGeoData = this.http.get<GeoFeatureCollection>("https://5000-navarette-angular-u30io67ydrz.ws-eu97.gitpod.io/ci_vettore/50");
     this.obsGeoData.subscribe(this.prepareData);
-    this.obsCiVett = this.http.get<Ci_vettore[]>("mongodb+srv://navarettearnold:OTQ1NGBauyWEKbNv@cluster0.0gmimrb.mongodb.net/ci_vettore/140");
+    this.obsCiVett = this.http.get<Ci_vettore[]>("https://5000-navarette-angular-u30io67ydrz.ws-eu97.gitpod.io/ci_vettore/140");
     this.obsCiVett.subscribe(this.prepareCiVettData);
   }
   prepareCiVettData = (data: Ci_vettore[]) => {
@@ -55,19 +55,5 @@ export class AppComponent implements AfterViewInit {
       //Marker(iterator.WGS84_X,iterator.WGS84_Y,iterator.CI_VETTORE);
       this.markerList.push(m);
     }
-  //   findImage(label: string) : google.maps.Icon {
-  //     if (label.includes("Gas")) {
-  //       return { url: './assets/img/gas.ico', scaledSize: new google.maps.Size(32, 32) };
-  //     }
-  //     if (label.includes("elettrica")) {
-  //       return { url: './assets/img/electricity.ico', scaledSize: new google.maps.Size(32, 32) };
-  //     }
-  //     //Se non viene riconosciuta nessuna etichetta ritorna l'icona undefined
-  //     return { url: './assets/img/undefined.ico', scaledSize: new google.maps.Size(32, 32) }
-  //   }
-
-  // }
-  // function findImage(label: any, string: any) {
-  //   throw new Error('Function not implemented.');
   }
 }
