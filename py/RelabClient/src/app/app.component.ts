@@ -38,9 +38,9 @@ export class AppComponent implements AfterViewInit {
   //Una volta che la pagina web è caricata, viene lanciato il metodo ngOnInit scarico i    dati 
   //dal server
   ngOnInit() {
-    this.obsGeoData = this.http.get<GeoFeatureCollection>("https://5000-navarette-angular-u30io67ydrz.ws-eu97.gitpod.io/ci_vettore/50");
+    this.obsGeoData = this.http.get<GeoFeatureCollection>("https://5000-navarette-angular-sqfqhrxggoa.ws-eu98.gitpod.io/ci_vettore/50");
     this.obsGeoData.subscribe(this.prepareData);
-    this.obsCiVett = this.http.get<Ci_vettore[]>("https://5000-navarette-angular-u30io67ydrz.ws-eu97.gitpod.io/ci_vettore/140");
+    this.obsCiVett = this.http.get<Ci_vettore[]>("https://5000-navarette-angular-sqfqhrxggoa.ws-eu98.gitpod.io/ci_vettore/140");
     this.obsCiVett.subscribe(this.prepareCiVettData);
   }
   prepareCiVettData = (data: Ci_vettore[]) => {
